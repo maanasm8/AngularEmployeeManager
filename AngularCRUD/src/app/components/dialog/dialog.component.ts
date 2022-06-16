@@ -55,4 +55,8 @@ export class DialogComponent implements OnInit {
   get phoneNumberValidatorData() {
     return this.phoneNumberFormGroup.get('phoneNumberFormControl');
   }
+
+  addEmployee() {
+    console.log(this.userNameFormGroup.value);
+  }
 }

@@ -56,7 +56,7 @@
   </mat-form-field>
 
   <form [formGroup]="userEmails">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Email</mat-label>
       <ng-container *ngIf="emailData"
         ><input
@@ -72,7 +72,7 @@
           <small *ngIf="emailData.errors?.['required']" class="text-danger"
             >Primary email is required</small
           >
-          <--question mark(?) is a safe navigation operator--
+
           <small *ngIf="emailData.errors?.['pattern']" class="text-danger"
             >Please provide a valid email address</small
           >
@@ -81,7 +81,7 @@
     </mat-form-field>
   </form>
   <form [formGroup]="phoneNumberFormGroup">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Phone Number</mat-label>
       <ng-container *ngIf="phoneNumberValidatorData">
         <input
@@ -108,7 +108,7 @@
   </form>
 
   <form [formGroup]="userJobDescriptionFormGroup">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Job Description</mat-label>
       <ng-container *ngIf="jobValidatorData">
         <textarea
@@ -134,7 +134,12 @@
 
 <div mat-dialog-action [align]="'end'">
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button style="margin-left: 8px" mat-raised-button color="accent">
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="accent"
+    (click)="addEmployee()"
+  >
     Save
   </button>
 </div>

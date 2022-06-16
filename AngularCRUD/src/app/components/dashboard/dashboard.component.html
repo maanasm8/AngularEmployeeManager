@@ -1,2 +1,5 @@
 <app-home></app-home>
-<p>dashboard works!</p>
+<p>data from json placeholder /users</p>
+<ng-container *ngFor="let u of usersData">
+  <li>{{ u.name }}</li>
+</ng-container>

@@ -1,7 +1,7 @@
 <p>
   <mat-toolbar color="primary">
     <span>
-      <a routerLink="/employeeData" class="link">Employee Manager</a>
+      <a routerLink="/" class="link">Employee Manager</a>
     </span>
     <span class="example-spacer"></span>
     <!-- <button
@@ -18,6 +18,15 @@
         class="example-icon dashboard-icon"
       >
         <mat-icon>dashboard</mat-icon>
+      </button>
+    </span>
+    <span>
+      <button
+        routerLink="/addEmployee"
+        mat-icon-button
+        class="example-icon addEmployee-icon"
+      >
+        <mat-icon>add</mat-icon>
       </button>
     </span>
   </mat-toolbar>

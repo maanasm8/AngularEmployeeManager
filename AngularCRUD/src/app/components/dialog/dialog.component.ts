@@ -1,62 +1,76 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { retry } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private formBui: FormBuilder,
+    private apiSer: ApiService,
+    private dialogRefS: MatDialogRef<DialogComponent>
+  ) {}
 
   types: string[] = ['Intern', 'Part-time', 'Full-time', 'Contractor'];
   employeeType: string | null = null;
   employeeNameNgModelVar: string | null = null;
+  employeeFormGroup!: FormGroup;
 
-  ngOnInit(): void {}
-  email_regex = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-  special_characters_regex = '/^[a-zA-Z0-9]*$/';
-  phone_no_regex = '^(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}$';
-
-  userEmails = new FormGroup({
-    emailFormControl: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      Validators.pattern(this.email_regex),
-    ]),
-  });
-
-  userNameFormGroup = new FormGroup({
-    nameFromControl: new FormControl('', [Validators.required]),
-  });
-
-  userJobDescriptionFormGroup = new FormGroup({
-    jobDescriptionFormControl: new FormControl('', [
-      Validators.pattern(this.special_characters_regex),
-    ]),
-  });
-
-  phoneNumberFormGroup = new FormGroup({
-    phoneNumberFormControl: new FormControl('', [Validators.required]),
-  });
+  ngOnInit(): void {
+    this.employeeFormGroup = this.formBui.group({
+      emailFormControl: ['', Validators.email],
+      nameFromControl: ['', Validators.required],
+      jobDescriptionFormControl: ['', Validators.required],
+      phoneNumberFormControl: ['', Validators.required],
+      hireDateFormControl: ['', Validators.required],
+    });
+  }
 
   get emailData() {
-    return this.userEmails.get('emailFormControl');
+    return this.employeeFormGroup.get('emailFormControl');
   }
 
   get jobValidatorData() {
-    return this.userJobDescriptionFormGroup.get('jobDescriptionFormControl');
+    return this.employeeFormGroup.get('jobDescriptionFormControl');
   }
 
   get nameValidatorData() {
-    return this.userNameFormGroup.get('nameFormControl');
+    return this.employeeFormGroup.get('nameFormControl');
   }
 
   get phoneNumberValidatorData() {
-    return this.phoneNumberFormGroup.get('phoneNumberFormControl');
+    return this.employeeFormGroup.get('phoneNumberFormControl');
   }
 
+  get hireDateValidatorData() {
+    return this.employeeFormGroup.get('hireDateFormControl');
+  }
+
+  /**
+   * Add Employee
+   */
   addEmployee() {
-    console.log(this.userNameFormGroup.value);
+    console.log('CLICKED');
+    //  if (this.employeeFormGroup.valid) {
+    this.apiSer.postEmployee(this.employeeFormGroup.value).subscribe({
+      next: (res) => {
+        //  alert('Employee Added Successfully');
+        this.employeeFormGroup.reset();
+        this.dialogRefS.close('save');
+      },
+      error: () => {
+        alert('Error while adding employee');
+      },
+    });
+    //}
   }
 }

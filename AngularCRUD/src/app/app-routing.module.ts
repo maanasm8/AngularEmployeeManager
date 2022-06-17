@@ -6,7 +6,7 @@ import { EmployeLayoutComponent } from './components/employe-layout/employe-layo
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: 'employeeData', component: EmployeLayoutComponent },
+  { path: 'addEmployee', component: EmployeLayoutComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,

@@ -1,0 +1,63 @@
+{
+  "employeeList": [
+    {
+      "emailFormControl": "fda",
+      "nameFromControl": "dsa",
+      "jobDescriptionFormControl": "",
+      "id": 1
+    },
+    {
+      "emailFormControl": "damodar@gmail.com",
+      "nameFromControl": "Maanas",
+      "jobDescriptionFormControl": "",
+      "id": 2
+    },
+    {
+      "emailFormControl": "sameer@g.com",
+      "nameFromControl": "Sameer",
+      "jobDescriptionFormControl": "afdjsfk dfsaoiwhofwe",
+      "id": 3
+    },
+    {
+      "emailFormControl": "maanas@yahoo.com",
+      "nameFromControl": "fdas",
+      "jobDescriptionFormControl": "afdsfads jhwoihfewfhubi",
+      "phoneNumberFormControl": "323-333-3333",
+      "id": 4
+    },
+    {
+      "emailFormControl": "nandan@gmail.com",
+      "nameFromControl": "Maanas",
+      "jobDescriptionFormControl": "fadsfads iwehfuew8",
+      "phoneNumberFormControl": "300-300-30000",
+      "hireDateFormControl": "2022-06-14T04:00:00.000Z",
+      "id": 5
+    },
+    {
+      "emailFormControl": "hari@yahoo.com",
+      "nameFromControl": "Hari",
+      "jobDescriptionFormControl": "Hi this is Hari",
+      "phoneNumberFormControl": "300-400-5000",
+      "hireDateFormControl": "2022-06-01T04:00:00.000Z",
+      "id": 6
+    },
+    {
+      "emailFormControl": "dfs@gmail.com",
+      "nameFromControl": "hoo",
+      "jobDescriptionFormControl": "jfaidosofsa",
+      "phoneNumberFormControl": "33333333",
+      "hireDateFormControl": "2022-06-21T04:00:00.000Z",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

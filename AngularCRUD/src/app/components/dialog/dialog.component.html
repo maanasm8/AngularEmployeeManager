@@ -1,15 +1,13 @@
 <h1 mat-dialog-title>Add Employee</h1>
 <div mat-dialog-content>
-  <form [formGroup]="userNameFormGroup">
+  <form [formGroup]="employeeFormGroup">
     <mat-form-field appearance="outline">
       <mat-label>Employee Name</mat-label>
-
       <input
         [class.is-invalid]="nameValidatorData && nameValidatorData.touched"
         formControlName="nameFromControl"
         matInput
         placeholder="Name"
-        [(ngModel)]="employeeNameNgModelVar"
       />
       <div *ngIf="nameValidatorData && nameValidatorData.touched">
         <p *ngIf="nameValidatorData.errors?.['required']" class="text-danger">
@@ -17,129 +15,120 @@
         </p>
       </div>
     </mat-form-field>
-  </form>
+    <!--EMPLOYEE CATEGORY-->
+    <mat-form-field appearance="outline">
+      <mat-label>Employee Category</mat-label>
+      <mat-select [required]="true" placeholder="Category">
+        <mat-option value="frontend">Front End</mat-option>
+        <mat-option value="backend">Back End</mat-option>
+        <mat-option value="fullstack">Full Stack</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Employee Category</mat-label>
-    <mat-select [required]="true" placeholder="Category">
-      <mat-option value="frontend">Front End</mat-option>
-      <mat-option value="backend">Back End</mat-option>
-      <mat-option value="fullstack">Full Stack</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <label id="example-radio-group-label">Employee Type</label>
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group"
-    [(ngModel)]="employeeType"
-  >
-    <mat-radio-button
-      class="example-radio-button"
-      *ngFor="let t of types"
-      [value]="t"
+    <!--EMPLOYEE TYPE-->
+
+    <label id="example-radio-group-label">Employee Type</label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
     >
-      {{ t }}
-    </mat-radio-button>
-  </mat-radio-group>
-  <span
-    >{{ employeeNameNgModelVar }} is
-    <span *ngIf="employeeType == 'Intern'; else use_a">an</span>
-    <ng-template #use_a> <span> a </span> </ng-template> :
-    {{ employeeType }} employer</span
-  >
-  <mat-form-field appearance="outline">
-    <mat-label>Joining Date</mat-label>
-    <input matInput [matDatepicker]="picker" />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let t of types"
+        [value]="t"
+      >
+        {{ t }}
+      </mat-radio-button>
+    </mat-radio-group>
 
-  <form [formGroup]="userEmails">
+    <!--EMPLOYEE JOINING DATE-->
+    <mat-form-field appearance="outline">
+      <mat-label>Joining Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="hireDateFormControl"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!--EMPLOYEE EMAILS-->
+
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Email</mat-label>
-      <ng-container *ngIf="emailData"
-        ><input
-          type="email"
-          matInput
-          [class.is-invalid]="emailData.invalid && emailData.touched"
-          formControlName="emailFormControl"
-          placeholder="Ex. pat@example.com"
-        />
-        <div
-          *ngIf="(emailData.invalid && emailData.touched) || emailData.dirty"
-        >
-          <small *ngIf="emailData.errors?.['required']" class="text-danger"
-            >Primary email is required</small
-          >
 
-          <small *ngIf="emailData.errors?.['pattern']" class="text-danger"
-            >Please provide a valid email address</small
-          >
-        </div>
-      </ng-container>
+      <input
+        type="email"
+        matInput
+        [class.is-invalid]="emailData && emailData?.touched"
+        formControlName="emailFormControl"
+        placeholder="Ex.
+      pat@example.com"
+      />
+      <div *ngIf="emailData && emailData.touched">
+        <small *ngIf="emailData.errors?.['email']" class="text-danger"
+          >Check email format</small
+        >
+      </div>
     </mat-form-field>
-  </form>
-  <form [formGroup]="phoneNumberFormGroup">
+    <!--EMPLOYEE PHONE NO.-->
+
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Phone Number</mat-label>
-      <ng-container *ngIf="phoneNumberValidatorData">
-        <input
-          type="text"
-          matInput
-          placeholder="+1..."
-          formControlName="phoneNumberFormControl"
-          [class.is-invalid]="
-            phoneNumberValidatorData.invalid && phoneNumberValidatorData.touched
-          "
-        />
-        <div *ngIf="phoneNumberValidatorData.invalid">
-          <small
-            *ngIf="phoneNumberValidatorData.errors?.['required']"
-            class="text-danger"
-            >Phone Number is required
-          </small>
-          <small *ngIf="" class="text-danger">
-            Please Check the Phone Number Format
-          </small>
-        </div>
-      </ng-container>
+      <input
+        type="text"
+        matInput
+        placeholder="+1..."
+        [class.is-invalid]="
+          phoneNumberValidatorData && phoneNumberValidatorData.touched
+        "
+        formControlName="phoneNumberFormControl"
+      />
+      <div *ngIf="phoneNumberValidatorData">
+        <small
+          *ngIf="phoneNumberValidatorData.errors?.['required']"
+          class="text-danger"
+          >Phone Number is required
+        </small>
+        <!-- <small
+          *ngIf="phoneNumberValidatorData.errors?.['maxLength']"
+          class="text-danger"
+        >
+          Please Check the Phone Number Format
+        </small> -->
+      </div>
     </mat-form-field>
-  </form>
 
-  <form [formGroup]="userJobDescriptionFormGroup">
+    <!--EMPLOYEE JOB DESCRIPTION-->
+
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Job Description</mat-label>
-      <ng-container *ngIf="jobValidatorData">
-        <textarea
-          formControlName="jobDescriptionFormControl"
-          matInput
-          [class.is-invalid]="
-            jobValidatorData.invalid && jobValidatorData.touched
-          "
-          placeholder="Ex. Front-End Developer... (No special Characters Allowed)"
-        ></textarea>
 
-        <div *ngIf="jobValidatorData.invalid && jobValidatorData.touched">
-          <small
-            *ngIf="jobValidatorData.errors?.['pattern']"
-            class="text-danger"
-            >No Special Characters are allowed</small
-          >
-        </div>
-      </ng-container>
+      <textarea
+        matInput
+        [class.is-invalid]="jobValidatorData && jobValidatorData.touched"
+        placeholder="Ex. Front-End Developer... (No special Characters Allowed)"
+        formControlName="jobDescriptionFormControl"
+      ></textarea>
+
+      <div *ngIf="jobValidatorData && jobValidatorData.touched">
+        <small *ngIf="jobValidatorData.errors?.['required']" class="text-danger"
+          >Job Description is required</small
+        >
+      </div>
     </mat-form-field>
   </form>
-</div>
-
-<div mat-dialog-action [align]="'end'">
-  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button
-    style="margin-left: 8px"
-    mat-raised-button
-    color="accent"
-    (click)="addEmployee()"
-  >
-    Save
-  </button>
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="accent"
+      (click)="addEmployee()"
+    >
+      Save
+    </button>
+  </div>
 </div>

@@ -21,6 +21,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { TableLayoutComponent } from './components/table-layout/table-layout.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     EmployeLayoutComponent,
     DialogComponent,
+    TableLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,9 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatRadioModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

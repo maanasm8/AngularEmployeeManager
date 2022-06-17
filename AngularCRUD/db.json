@@ -1,53 +1,34 @@
 {
   "employeeList": [
     {
-      "emailFormControl": "fda",
-      "nameFromControl": "dsa",
-      "jobDescriptionFormControl": "",
+      "emailFormControl": "maanasm8@gmail.com",
+      "nameFormControl": "Maanas Muddam",
+      "jobDescriptionFormControl": "Maanas Is Blah",
+      "phoneNumberFormControl": "301-712-7577",
+      "hireDateFormControl": "2022-06-01T04:00:00.000Z",
+      "typeOfJobFormControl": "Intern",
+      "jobCategoryFormControl": "backend",
       "id": 1
     },
     {
-      "emailFormControl": "damodar@gmail.com",
-      "nameFromControl": "Maanas",
-      "jobDescriptionFormControl": "",
+      "emailFormControl": "d@gmail.com",
+      "nameFormControl": "Sammer",
+      "jobDescriptionFormControl": "fads",
+      "phoneNumberFormControl": "222",
+      "hireDateFormControl": "2022-06-06T04:00:00.000Z",
+      "typeOfJobFormControl": "Intern",
+      "jobCategoryFormControl": "backend",
       "id": 2
     },
     {
-      "emailFormControl": "sameer@g.com",
-      "nameFromControl": "Sameer",
-      "jobDescriptionFormControl": "afdjsfk dfsaoiwhofwe",
+      "emailFormControl": "harishsai@yahoo.com",
+      "nameFormControl": "Harish",
+      "jobDescriptionFormControl": "fadskfhasoi ihowhfeo",
+      "phoneNumberFormControl": "301-777-7777",
+      "hireDateFormControl": "2022-05-11T04:00:00.000Z",
+      "typeOfJobFormControl": "Intern",
+      "jobCategoryFormControl": "frontend",
       "id": 3
-    },
-    {
-      "emailFormControl": "maanas@yahoo.com",
-      "nameFromControl": "fdas",
-      "jobDescriptionFormControl": "afdsfads jhwoihfewfhubi",
-      "phoneNumberFormControl": "323-333-3333",
-      "id": 4
-    },
-    {
-      "emailFormControl": "nandan@gmail.com",
-      "nameFromControl": "Maanas",
-      "jobDescriptionFormControl": "fadsfads iwehfuew8",
-      "phoneNumberFormControl": "300-300-30000",
-      "hireDateFormControl": "2022-06-14T04:00:00.000Z",
-      "id": 5
-    },
-    {
-      "emailFormControl": "hari@yahoo.com",
-      "nameFromControl": "Hari",
-      "jobDescriptionFormControl": "Hi this is Hari",
-      "phoneNumberFormControl": "300-400-5000",
-      "hireDateFormControl": "2022-06-01T04:00:00.000Z",
-      "id": 6
-    },
-    {
-      "emailFormControl": "dfs@gmail.com",
-      "nameFromControl": "hoo",
-      "jobDescriptionFormControl": "jfaidosofsa",
-      "phoneNumberFormControl": "33333333",
-      "hireDateFormControl": "2022-06-21T04:00:00.000Z",
-      "id": 7
     }
   ],
   "comments": [

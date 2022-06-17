@@ -28,10 +28,12 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
     this.employeeFormGroup = this.formBui.group({
       emailFormControl: ['', Validators.email],
-      nameFromControl: ['', Validators.required],
+      nameFormControl: ['', Validators.required],
       jobDescriptionFormControl: ['', Validators.required],
       phoneNumberFormControl: ['', Validators.required],
       hireDateFormControl: ['', Validators.required],
+      typeOfJobFormControl: ['', Validators.required],
+      jobCategoryFormControl: ['', Validators.required],
     });
   }
 

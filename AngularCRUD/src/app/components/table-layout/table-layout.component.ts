@@ -3,7 +3,9 @@ import { ApiService } from 'src/app/services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { AfterViewInit, ViewChild } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-table-layout',
@@ -20,13 +22,15 @@ export class TableLayoutComponent implements OnInit {
     'phoneNumberFormControl',
     'jobCategoryFormControl',
     'typeOfJobFormControl',
+    'action',
   ];
+
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private employeeS: ApiService) {}
+  constructor(private employeeS: ApiService, private dialog: MatDialog) {}
   title = 'AngularCRUD';
   ngOnInit(): void {
     this.getEmployeeData();
@@ -50,5 +54,20 @@ export class TableLayoutComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  //Edit functionality
+  editEmployeeData(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '80%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
+          this.getEmployeeData();
+        }
+      });
   }
 }

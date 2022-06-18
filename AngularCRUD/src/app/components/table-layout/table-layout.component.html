@@ -1,6 +1,6 @@
 <app-home></app-home>
-<ng-container *ngIf="isHome"
-  ><mat-form-field appearance="standard">
+<div class="container">
+  <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input
       matInput
@@ -53,6 +53,22 @@
         <td mat-cell *matCellDef="let row">{{ row.jobCategoryFormControl }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            (click)="editEmployeeData(row)"
+            mat-icon-button
+            color="accent"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
@@ -69,4 +85,4 @@
       aria-label="Select page of users"
     ></mat-paginator>
   </div>
-</ng-container>
+</div>

@@ -11,13 +11,13 @@
       "id": 1
     },
     {
-      "emailFormControl": "d@gmail.com",
-      "nameFormControl": "Sammer",
+      "emailFormControl": "sameer@gmail.com",
+      "nameFormControl": "Sameer",
       "jobDescriptionFormControl": "fads",
       "phoneNumberFormControl": "222",
       "hireDateFormControl": "2022-06-06T04:00:00.000Z",
-      "typeOfJobFormControl": "Intern",
-      "jobCategoryFormControl": "backend",
+      "typeOfJobFormControl": "Full-time",
+      "jobCategoryFormControl": "frontend",
       "id": 2
     },
     {
